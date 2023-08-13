@@ -1,16 +1,16 @@
+import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
-  );
+    <GoogleOAuthProvider clientId="728051063645-2lelggnau5h8n6bm9pkfsnfhot5aj8bm.apps.googleusercontent.com">
+      <GoogleLogin
+        onSuccess={credentialResponse => {
+          console.log(credentialResponse);
+        }}
+        onError={() => {
+          console.log('Login Failed');
+        }}
+      />
+    </GoogleOAuthProvider>
+);
 };
